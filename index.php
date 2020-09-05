@@ -93,10 +93,125 @@ body[modalita="smartphone"] #navLeft{
 }
 
 body[modalita="smartphone"] #searchbar{
-	width:100% !important;
+	width:100% ;
 }
 
 
+
+<!-- Roba login -->
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+<!-- Roba login -->
 </style>
 
 <script>        
@@ -138,7 +253,7 @@ window.addEventListener("resize", displayWindowSize);
 			</div>
 			<div id="navRight" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 allineaDx" style="padding-top:22px;">
 				
-				<button type="button" class="ml-auto mr-auto readmore btn" ng-show="!$ctrl.me" ng-click="$ctrl.openLoginModal()">
+				<button type="button" class="ml-auto mr-auto readmore btn" ng-show="!$ctrl.me" ng-click="$ctrl.openLoginModal()" onclick="document.getElementById('id01').style.display='block'" ">
 				Login
 				</button>
 			</div>
@@ -152,7 +267,7 @@ window.addEventListener("resize", displayWindowSize);
 	<form class="ng-pristine ng-valid" id="searchbar" style="width:60%;height:30px; margin:auto;">
 		<div class="inner-form">
 			<div class="input-field first-wrap" style="height: 60px;">
-				<input id="search" type="text" placeholder="Cerca una palestra..." autocomplete="off" ng-model="$ctrl.query" ng-change="$ctrl.search()" ng-keyup="$ctrl.keyUp($event)" class="ng-pristine ng-untouched ng-valid ng-empty" style="padding-bottom: 0px;padding-top: 0px;">
+				<input id="search" type="text" placeholder="Cerca una palestra..." autocomplete="on" ng-model="$ctrl.query" ng-change="$ctrl.search()" ng-keyup="$ctrl.keyUp($event)" class="ng-pristine ng-untouched ng-valid ng-empty" style="padding-bottom: 0px;padding-top: 0px;">
 				<div class="svg-wrapper cursore" onClick="alert('cerco');">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 						<path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
@@ -163,6 +278,56 @@ window.addEventListener("resize", displayWindowSize);
 		</div>
 	</form>
 </div>
+
+
+
+
+
+
+
+
+
+<!-- Roba login -->
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img class="logo" src="./img/logo.png" style="vertical-align: bottom;">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+<!-- Roba login -->
 
 </body>
 
