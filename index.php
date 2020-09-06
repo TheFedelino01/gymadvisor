@@ -78,6 +78,7 @@ body[modalita="smartphone"] .logo{
 
 body[modalita="smartphone"] #nav{
 	padding-left:0px;
+    padding-right: 0px;
 }
 body[modalita="smartphone"] #container{
 	margin:0px;
@@ -98,7 +99,11 @@ body[modalita="smartphone"] #searchbar{
 	width:100% !important;
 }
 
-
+.contorno{
+  box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.1);   
+  padding:10px;
+  border-radius: 10px;
+}
 
 </style>
 
@@ -122,6 +127,8 @@ window.addEventListener("resize", displayWindowSize);
 </head>
 
 <body onload="displayWindowSize();" id="body" modalita="normale">
+
+<!-- Barra di navigazione Top -->
 <nav class="navbar navbar-light" id="nav">
 	<div class="container" id="container" style="margin:auto;">
 		<div class="row" style="width:100%;">
@@ -140,10 +147,14 @@ window.addEventListener("resize", displayWindowSize);
 				</a>
 			</div>
 			<div id="navRight" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 allineaDx" style="padding-top:22px;">
+			
+				<a class="cursore" data-toggle="modal" data-target="#registratiModal">
+				Registrati</a>
 				
-				<button type="button" class="ml-auto mr-auto readmore btnMio" data-toggle="modal" data-target="#exampleModal">
+				<button type="button" class="ml-auto mr-auto readmore btnMio" data-toggle="modal" data-target="#loginModal">
 				Login
 				</button>
+
 			</div>
 			
 		</div>
@@ -151,7 +162,7 @@ window.addEventListener("resize", displayWindowSize);
 
 </nav>
 
-    
+<!-- Search Bar -->
 <div class="search-bar" id="searchbar">
 	<form class="ng-pristine ng-valid" id="searchbar" style="width:60%;height:30px; margin:auto;">
 		<div class="inner-form">
@@ -172,8 +183,48 @@ window.addEventListener("resize", displayWindowSize);
 
 
 
-<!-- Roba login -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Registrati Modal -->
+<div class="modal fade" id="registratiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registrati</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+		<form method="post" action="registrati.php">
+		  <div class="modal-body" >
+				<div class="contorno">
+				  <div class="form-group">
+					<label for="exampleInputEmail1" class="medio">Email:</label>
+					<input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email">
+				  </div>
+				 </div>
+				 <br>
+				  <div class="contorno">
+					  <div class="form-group">
+						<label for="exampleInputPassword1" class="medio">Password:</label>
+						<input type="password" class="form-control" id="password" placeholder="Password">
+					  </div>
+					   <div class="form-group">
+						<label for="exampleInputPassword1" class="medio">Conferma Password:</label>
+						<input type="password" class="form-control" id="passwordConferma" placeholder="Password">
+					  </div>
+				  </div>
+		  </div>
+		  <div class="modal-footer" style="padding-bottom: 0px;">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+			<button type="submit" class="btn btn-primary">Registrati</button>
+		  </div>
+		  
+		</form>
+	</div>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -182,14 +233,14 @@ window.addEventListener("resize", displayWindowSize);
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-		<form>
+		<form  method="post" action="login.php">
 		  <div class="modal-body" >
 				  <div class="form-group">
 					<label for="exampleInputEmail1" class="medio">Email:</label>
 					<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
 				  </div>
 				  <div class="form-group">
-					<label for="exampleInputPassword1" class="medio">Password</label>
+					<label for="exampleInputPassword1" class="medio">Password:</label>
 					<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
 				  </div>
 		  </div>
@@ -202,7 +253,6 @@ window.addEventListener("resize", displayWindowSize);
 	</div>
   </div>
 </div>
-
 
 
 </body>
