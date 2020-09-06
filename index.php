@@ -145,28 +145,7 @@ span.psw {
   padding-top: 16px;
 }
 
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  padding-top: 60px;
-}
 
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
 
 /* The Close Button (x) */
 .close {
@@ -253,10 +232,11 @@ window.addEventListener("resize", displayWindowSize);
 			</div>
 			<div id="navRight" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 allineaDx" style="padding-top:22px;">
 				
-				<button type="button" class="ml-auto mr-auto readmore btn" ng-show="!$ctrl.me" ng-click="$ctrl.openLoginModal()" onclick="document.getElementById('id01').style.display='block'" ">
+				<button type="button" class="ml-auto mr-auto readmore btn" data-toggle="modal" data-target="#exampleModal">
 				Login
 				</button>
 			</div>
+			
 		</div>
 	</div>
 
@@ -283,51 +263,51 @@ window.addEventListener("resize", displayWindowSize);
 
 
 
-
-
-
-
 <!-- Roba login -->
-<div id="id01" class="modal">
-  
-  <form class="modal-content animate" action="/action_page.php" method="post">
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img class="logo" src="./img/logo.png" style="vertical-align: bottom;">
-    </div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form class="modal-content animate" action="/action_page.php" method="post">
+			<div class="imgcontainer">
+			  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+			  <img class="logo" src="./img/logo.png" style="vertical-align: bottom;">
+			</div>
 
-    <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+			<div class="container">
+			  <label for="uname"><b>Username</b></label>
+			  <input type="text" placeholder="Enter Username" name="uname" required>
 
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-        
-      <button type="submit">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-    </div>
+			  <label for="psw"><b>Password</b></label>
+			  <input type="password" placeholder="Enter Password" name="psw" required>
+				
+			  <button type="submit">Login</button>
+			  <label>
+				<input type="checkbox" checked="checked" name="remember"> Remember me
+			  </label>
+			</div>
 
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
+			<div class="container" style="background-color:#f1f1f1">
+			  <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+			  <span class="psw">Forgot <a href="#">password?</a></span>
+			</div>
+		  </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
-  </form>
+  </div>
 </div>
 
-<script>
-// Get the modal
-var modal = document.getElementById('id01');
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
-<!-- Roba login -->
 
 </body>
 
