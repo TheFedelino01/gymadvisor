@@ -95,7 +95,7 @@ body[modalita="smartphone"] #navLeft{
 }
 
 body[modalita="smartphone"] #searchbar{
-	width:100% ;
+	width:100% !important;
 }
 
 
@@ -152,7 +152,7 @@ window.addEventListener("resize", displayWindowSize);
 </nav>
 
     
-<div class="search-bar" >
+<div class="search-bar" id="searchbar">
 	<form class="ng-pristine ng-valid" id="searchbar" style="width:60%;height:30px; margin:auto;">
 		<div class="inner-form">
 			<div class="input-field first-wrap" style="height: 60px;">
