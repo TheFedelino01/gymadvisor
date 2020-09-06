@@ -105,6 +105,14 @@ body[modalita="smartphone"] #searchbar{
   border-radius: 10px;
 }
 
+body[modalita="smartphone"] #bodyModalRegistrati{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+
+
 </style>
 
 <script>        
@@ -194,7 +202,7 @@ window.addEventListener("resize", displayWindowSize);
         </button>
       </div>
 		<form method="post" action="registrati.php">
-		  <div class="modal-body" >
+		  <div class="modal-body" id="bodyModalRegistrati">
 				<div class="contorno">
 				  <div class="form-group">
 					<label for="exampleInputEmail1" class="medio">Email:</label>
